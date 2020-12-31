@@ -16,9 +16,7 @@ export function Board() {
     [2, 4, 6]
 
   ];
-  function renderSquare(i) {
-    return <Square index={i} onClick={() => { HandelClick(i) }} value={state} />;
-  }
+
   function pairs(newState) {
     for (let i = 0; i < pair.length; i++) {
       const [a, b, c] = pair[i];
@@ -41,6 +39,9 @@ export function Board() {
     newState[index] = next === "X" ? "X" : "O";
     setstate(newState);
     setnext(next === "X" ? "O" : "X");
+  }
+  function renderSquare(i) {
+    return <Square index={i} onClick={() => { HandelClick(i) }} value={state} />;
   }
   return (
     <div>

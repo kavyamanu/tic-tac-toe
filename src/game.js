@@ -1,4 +1,5 @@
 import { Board } from "./board";
+import { useState } from "react";
 export function Game() {
   const [state, setstate] = useState([]);
   const [next, setnext] = useState("X");
@@ -15,14 +16,16 @@ export function Game() {
     [2, 4, 6]
 
   ];
+
   function pairs(newState) {
     for (let i = 0; i < pair.length; i++) {
       const [a, b, c] = pair[i];
-      if (newState[a] && newState[a] === newState[b] && newState[a] === newState[c]) {
+      if (newState[a] && (newState[a] === newState[b]) && (newState[a] === newState[c])) {
         return newState[a];
       }
     }
   }
+
   let winner = pairs(newState);
   if (winner) {
     finalWinner = `Whee!Winner: ${winner}`;
@@ -41,9 +44,10 @@ export function Game() {
 return (
   <div className="game">
     <div className="game-board">
-      <Board index={i} onClick={() => { HandelClick(i) }} value={state}/>
+      <Board onClick={(i) => {HandelClick(i)}} value={state}/>
     </div>
     <div className="game-info">
+    <div className="status">{finalWinner}</div>
       <div>{/* status */}</div>
       <ol>{/* TODO */}</ol>
     </div>

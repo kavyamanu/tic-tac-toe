@@ -1,8 +1,8 @@
 export function Square(props) {
 
   return (
-    <button className="square" onClick = {()=> {props.onClick(props.index)}}>
-      {props.value[props.index]}
+    <button className="square" onClick = {()=> {props.onClicked(props.index)}}>
+      {props.stateValue[props.index]}
     </button>
   );
 }
